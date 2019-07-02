@@ -15,7 +15,7 @@ public class CustomerInfo {
      * @param customerEntity
      * @throws CustomerException
      */
-    public static void setCustomerInfo(CustomerEntity customerEntity) throws Exception{
+    public static CustomerEntity setCustomerInfo(CustomerEntity customerEntity) throws Exception{
         //获取用户卡号
         String cardNo = customerEntity.getCardNo();
         //此部分模拟数据库根据卡号查询用户信息
@@ -46,5 +46,6 @@ public class CustomerInfo {
         }else{
             throw new CustomerException("当前用户不存在，请核实卡号信息重新输入");
         }
+        return customerEntity;
     }
 }
