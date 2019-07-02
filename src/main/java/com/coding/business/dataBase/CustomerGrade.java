@@ -4,8 +4,6 @@ import com.coding.business.constant.CustomerEnum;
 import com.coding.business.constant.CustomerMultipleEnum;
 import com.coding.business.entity.CustomerEntity;
 
-import java.util.Map;
-
 /**
  * 模拟数据库数据，用于根据积分获取用户等级信息
  */
