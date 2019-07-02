@@ -20,7 +20,7 @@ public class MetalPool {
      * 获取贵金属商品列表信息
      * @return
      */
-    public static Map<String,MetalEntity> getMetalProductList(){
+    public static Map<String,MetalEntity> getMetalProductInfo(){
         Map<String,MetalEntity> map = new HashMap<String,MetalEntity>();
         MetalEntity MetalEntity1 = new MetalEntity();
         MetalEntity1.setName("世园会五十国钱币册");
