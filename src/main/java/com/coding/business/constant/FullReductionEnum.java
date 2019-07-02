@@ -3,7 +3,7 @@ package com.coding.business.constant;
 /**
  * 满减枚举定义
  */
-public enum FullReduction {
+public enum FullReductionEnum {
     //每满3000元减350
     FULL3000REDUCE350,
     //每满2000元减30
