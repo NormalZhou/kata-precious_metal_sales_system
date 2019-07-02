@@ -30,7 +30,7 @@ public enum CustomerMultipleEnum {
      */
     public static Double getMultiple(CustomerEnum name) {
         for (CustomerMultipleEnum c : CustomerMultipleEnum.values()) {
-            if (c.getName().equals(name)) {
+            if (c.getName().equals(name.toString())) {
                 return c.multiple;
             }
         }

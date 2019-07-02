@@ -2,6 +2,8 @@ package com.coding.business.entity;
 
 import com.coding.business.constant.CustomerEnum;
 
+import java.util.Objects;
+
 /**
  * 客户实体类
  */
@@ -73,5 +75,22 @@ public class CustomerEntity {
 
     public void setOldInfo(CustomerEntity oldInfo) {
         this.oldInfo = oldInfo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomerEntity that = (CustomerEntity) o;
+        return Double.compare(that.grade, grade) == 0 &&
+                Double.compare(that.multiple, multiple) == 0 &&
+                Objects.equals(customerName, that.customerName) &&
+                Objects.equals(cardNo, that.cardNo) &&
+                customerType == that.customerType &&
+                Objects.equals(oldInfo, that.oldInfo);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerName, cardNo, grade, customerType, multiple, oldInfo);
     }
 }
