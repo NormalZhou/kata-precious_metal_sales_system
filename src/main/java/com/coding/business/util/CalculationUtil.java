@@ -44,6 +44,17 @@ public class CalculationUtil {
     }
 
     /**
+     * 相乘
+     * @param v1
+     * @param v2
+     * @return double
+     */
+    public static BigDecimal multiply(double v1, BigDecimal v2) {
+        BigDecimal n1 = new BigDecimal(Double.toString(v1));
+        return n1.multiply(v2);
+    }
+
+    /**
      * 相除v1/v2
      * @param v1
      * @param v2
