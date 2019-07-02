@@ -13,9 +13,9 @@ public class CalculationUtil {
      * @param v2
      * @return double
      */
-    public static Double add(double v1, double v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        BigDecimal n2 = new BigDecimal(Double.toString(v2));
+    public static Double add(Object v1, Object v2) {
+        BigDecimal n1 = objToDecimal(v1);
+        BigDecimal n2 = objToDecimal(v2);
         return n1.add(n2).doubleValue();
     }
 
@@ -25,9 +25,9 @@ public class CalculationUtil {
      * @param v2
      * @return double
      */
-    public static Double subtract(double v1, double v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        BigDecimal n2 = new BigDecimal(Double.toString(v2));
+    public static Double subtract(Object v1, Object v2) {
+        BigDecimal n1 = objToDecimal(v1);
+        BigDecimal n2 = objToDecimal(v2);
         return n1.subtract(n2).doubleValue();
     }
 
@@ -37,21 +37,10 @@ public class CalculationUtil {
      * @param v2
      * @return double
      */
-    public static Double multiply(double v1, double v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        BigDecimal n2 = new BigDecimal(Double.toString(v2));
+    public static Double multiply(Object v1, Object v2) {
+        BigDecimal n1 = objToDecimal(v1);
+        BigDecimal n2 = objToDecimal(v2);
         return n1.multiply(n2).doubleValue();
-    }
-
-    /**
-     * 相乘
-     * @param v1
-     * @param v2
-     * @return double
-     */
-    public static BigDecimal multiply(double v1, BigDecimal v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        return n1.multiply(v2);
     }
 
     /**
@@ -60,9 +49,9 @@ public class CalculationUtil {
      * @param v2
      * @return double
      */
-    public static Double divide(double v1, double v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        BigDecimal n2 = new BigDecimal(Double.toString(v2));
+    public static Double divide(Object v1, Object v2) {
+        BigDecimal n1 = objToDecimal(v1);
+        BigDecimal n2 = objToDecimal(v2);
         return n1.divide(n2, 2, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
@@ -72,9 +61,25 @@ public class CalculationUtil {
      * @param v2
      * @return
      */
-    public static int compare(double v1, double v2) {
-        BigDecimal n1 = new BigDecimal(Double.toString(v1));
-        BigDecimal n2 = new BigDecimal(Double.toString(v2));
+    public static int compare(Object v1, Object v2) {
+        BigDecimal n1 = objToDecimal(v1);
+        BigDecimal n2 = objToDecimal(v2);
         return n1.compareTo(n2);
+    }
+
+    /**
+     * 将不同类型的数字转换为bigDecimal
+     * @param obj
+     * @return
+     */
+    private static BigDecimal objToDecimal(Object obj){
+        if(obj instanceof Integer){
+            return new BigDecimal((Integer)obj);
+        }else if(obj instanceof Double){
+            return new BigDecimal(Double.toString((Double)obj));
+        }else if(obj instanceof BigDecimal){
+            return (BigDecimal)obj;
+        }
+        return new BigDecimal(0);//默认返回0
     }
 }
