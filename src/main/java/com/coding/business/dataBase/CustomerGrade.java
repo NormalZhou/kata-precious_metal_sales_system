@@ -19,7 +19,7 @@ public class CustomerGrade {
      * 模拟数据库查询，根据区间获取等级信息
      * @return
      */
-    public static void getCustomerGradeMap(CustomerEntity customerEntity){
+    public static void setCustomerGrade(CustomerEntity customerEntity){
         //获取用户分数
         double grade = customerEntity.getGrade();
         //模拟数据库查询，获取等级信息
