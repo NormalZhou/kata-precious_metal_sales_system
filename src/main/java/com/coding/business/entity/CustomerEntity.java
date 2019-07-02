@@ -19,6 +19,14 @@ public class CustomerEntity {
     /** 客户旧等级信息 */
     private CustomerEntity oldInfo;
 
+    /**
+     * 客户实体有参构造函数
+     * @param memberId
+     */
+    public CustomerEntity(String memberId){
+        this.cardNo=memberId;
+    }
+
     public String getCustomerName() {
         return customerName;
     }
